@@ -30,18 +30,19 @@ class Conditional_Themes_Switcher {
 	private $switched_theme;
 
 
-	/** Magic Methods *****************************************************/
+	/** Methods ***************************************************************/
 
 	/**
-	 * A dummy constructor to prevent Momtaz from being loaded more than once.
+	 * A dummy constructor to prevent the switcher from being loaded more than once.
 	 *
 	 * @since 1.0
 	 */
 	private function __construct() {}
 
 	/**
-	 * A dummy magic method to prevent Momtaz from being cloned
+	 * A dummy magic method to prevent the switcher from being cloned
 	 *
+	 * @return void
 	 * @since 0.1
 	 */
 	public function __clone() {
@@ -49,16 +50,14 @@ class Conditional_Themes_Switcher {
 	} // end __clone()
 
 	/**
-	 * A dummy magic method to prevent Momtaz from being unserialized
+	 * A dummy magic method to prevent the switcher from being unserialized
 	 *
+	 * @return void
 	 * @since 0.1
 	 */
 	public function __wakeup() {
 		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?' ), '0.1' );
 	} // end __wakeup()
-
-
-	//*** Static Methods ******************************************************/
 
 	/**
 	 * Get the stylesheet (child) theme root path.
@@ -201,10 +200,10 @@ class Conditional_Themes_Switcher {
 		add_filter( 'pre_option_current_theme', array( $this, 'current_theme' ) );
 
 		add_filter( 'pre_option_stylesheet', array( $this, 'get_stylesheet' ) );
-		add_filter( 'pre_option_template', array( $this, 'get_template'	) );
+		add_filter( 'pre_option_template', array( $this, 'get_template' ) );
 
 		add_filter( 'stylesheet', array( $this, 'get_stylesheet' ), 1 );
-		add_filter( 'template',	array( $this, 'get_template' ), 1 );
+		add_filter( 'template', array( $this, 'get_template' ), 1 );
 
 	} // end setup_switched_theme()
 
@@ -218,7 +217,7 @@ class Conditional_Themes_Switcher {
 	} // end maybe_switch()
 
 
-	/** Singleton *********************************************************/
+	/** Singleton *************************************************************/
 
 	private static $instance;
 
@@ -258,17 +257,17 @@ class Conditional_Themes_Manager {
 	protected static $themes = array();
 
 
-	/** Magic Methods *****************************************************/
+	/** Magic Methods *********************************************************/
 
 	/**
-	 * A dummy constructor to prevent the class from being loaded more than once.
+	 * A dummy constructor.
 	 *
 	 * @since 0.1
 	 */
 	private function __construct() {}
 
 
-	//*** Static Methods **************************************************/
+	//*** Static Methods ******************************************************/
 
 	/**
 	 * Get the conditional themes list.
